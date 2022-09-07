@@ -1,18 +1,3 @@
-#!/bin/bash
-
-set -e
-
-output() {
-  echo -e "* ${1}"
-}
-
-execute() {
-
-  bash <(curl -s "$1") 
-  [[ -n $2 ]] && execute "$2"
-}
-
-
 echo "This script will create a SSL reverse proxy that points your (sub)domain to an IP with an open port" 
 
 echo "What is the (sub)domain name you want to reverse proxy? (Eg. sub.domain.com)"                                                                                                                   

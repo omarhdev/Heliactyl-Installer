@@ -1,9 +1,9 @@
-echo "This script will setup an ssl nginx config for your heliactyl instance!"
+echo "This script will setup an ssl nginx config for your heliactyl instance!" 
 
-echo "What is the domain your heliactyl instance running on? (eg: client.heliactyl.cloud)"
+echo "What is the domain your heliactyl instance running on? (eg: client.heliactyl.cloud)"                                                                                                                   
 read ccdomain                                                                                                                                                     
                                                                                                                                                                   
-echo "What is the IP address of your server and the port the heliactyl instance is running on (Eg. 192.168.1.1:8192)"
+echo "What is the IP address of your server and the port the heliactyl instance is running on (Eg. 192.168.1.1:8192)"                                                                                   
 read ccip                                                                                                                                                         
                                                                                                                                                                   
 echo " server {                                                                                                                                                   

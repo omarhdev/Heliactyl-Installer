@@ -12,7 +12,7 @@ execute() {
   [[ -n $2 ]] && execute "$2"
 }
 
-HELIACTYL="https://cdn.discordapp.com/attachments/852642185916841994/1017124690109681715/entrypoint.sh"
+HELIACTYL="https://raw.githubusercontent.com/omarhdev/Heliactyl-Installer/main/install-heliactyl.sh"
 
 NGINX=""
 

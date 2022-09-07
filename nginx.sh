@@ -1,9 +1,9 @@
-echo "This script will create a SSL reverse proxy that points your (sub)domain to an IP with an open port" 
+echo "This script will setup an ssl nginx config for your heliactyl instance!" 
 
-echo "What is the (sub)domain name you want to reverse proxy? (Eg. sub.domain.com)"                                                                                                                   
+echo "What is the domain your heliactyl instance running on? (eg: client.heliactyl.cloud)"                                                                                                                   
 read ccdomain                                                                                                                                                     
                                                                                                                                                                   
-echo "What is the IP address of your server and the port the service is running on (Eg. 192.168.1.1:8192)"                                                                                   
+echo "What is the IP address of your server and the port the heliactyl instance is running on (Eg. 192.168.1.1:8192)"                                                                                   
 read ccip                                                                                                                                                         
                                                                                                                                                                   
 echo " server {                                                                                                                                                   
@@ -21,4 +21,4 @@ ln -s /etc/nginx/sites-available/$ccdomain.conf /etc/nginx/sites-enabled/$ccdoma
                                                                                                                                                                   
 certbot --nginx                                                                                                                                                   
                                                                                                                                                                   
-echo "Your reverse proxy is now setup and should be available at https://$ccdomain" 
+echo "Your reverse proxy for your heliactyl is now setup and should be available at https://$ccdomain" 

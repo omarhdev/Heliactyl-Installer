@@ -34,8 +34,6 @@ location / {
 
 ln -s /etc/nginx/sites-available/$ccdomain.conf /etc/nginx/sites-enabled/$ccdomain.conf
 
-apt install certbot
-apt install python3-certbot-nginx
-certbot certonly --nginx -d $ccdomain
+certbot certonly --nginx -d
 
-echo "Your reverse proxy for your heliactyl instance is now setup and should be available at https://$domain"
+echo "Your reverse proxy for your heliactyl instance is now setup and should be available at https://$ccdomain"

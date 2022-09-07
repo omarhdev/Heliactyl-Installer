@@ -14,7 +14,7 @@ execute() {
 
 HELIACTYL="https://raw.githubusercontent.com/omarhdev/Heliactyl-Installer/main/install-heliactyl.sh"
 
-NGINX=""
+NGINX="https://raw.githubusercontent.com/omarhdev/Heliactyl-Installer/main/nginx.sh"
 
   options=(
     "Install Heliactyl"

@@ -1,7 +1,7 @@
 #! /bin/sh
 
-mkdir /home/ubuntu/heliactyl
-cd /home/ubuntu/heliactyl || exit 1;
+mkdir /var/www/heliactyl
+cd /var/www/heliactyl || exit 1;
 
 if [[ -f "/home/ubuntu/heliactyl/index.js" ]]; then
   node index.js
@@ -13,8 +13,8 @@ else
     "Y"|"y")
         echo "Installing Heliactyl...";
 
-        git clone https://gitlab.com/heliactyl/panel.git /home/ubuntu/heliactyl
-		mv /home/ubuntu/heliactyl/panel/** /home/ubuntu/heliactyl
+        git clone https://gitlab.com/heliactyl/panel.git /var/www/heliactyl
+	mv /var/www/heliactyl/panel/** /var/www/heliactyl
         npm install
 
         echo "Heliactyl is now installed, to configure it and do the nginx config please refer to: https://gitlab.com/heliactyl/panel";

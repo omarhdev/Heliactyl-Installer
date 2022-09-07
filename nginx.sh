@@ -6,7 +6,7 @@ echo "What is the domain your heliactyl instance running on? (eg: client.heliact
 read domain                                                                               
 
 echo "What is the IP address of your server and the port the heliactyl instance is running on (Eg. 192.168.1.1:8192)"
-read ip-port                                                                                   
+read ipport                                                                                   
                                                                                                                                                                   
 echo " server {
     listen 80;
@@ -19,7 +19,7 @@ location /afkwspath {
   proxy_http_version 1.1;
   proxy_set_header Upgrade $http_upgrade;
   proxy_set_header Connection "upgrade";
-  proxy_pass "http://$ip-port/afkwspath";
+  proxy_pass "http://$ipport/afkwspath";
 }
     
     server_name $domain;
@@ -30,7 +30,7 @@ ssl_certificate /etc/letsencrypt/live/$domain/fullchain.pem;
     ssl_ciphers  HIGH:!aNULL:!MD5;
     ssl_prefer_server_ciphers on;
 location / {
-      proxy_pass http://$ip-port/;
+      proxy_pass http://$ipport/;
       proxy_buffering off;
       proxy_set_header X-Real-IP $remote_addr;
   }
@@ -38,8 +38,8 @@ location / {
 
 ln -s /etc/nginx/sites-available/heliactyl.conf /etc/nginx/sites-enabled/heliactyl.conf                                                                           
 
-apt install certbot -y
-apt install python3-certbot-nginx -y
+apt install certbot
+apt install python3-certbot-nginx
 certbot certonly --nginx -d $domain                                                        
 
 echo "Your reverse proxy for your heliactyl instance is now setup and should be available at https://$domain" 

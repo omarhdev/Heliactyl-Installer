@@ -5,7 +5,9 @@ read ccdomain
                                                                                                                                                                   
 echo "What is the IP address of your server and the port the heliactyl instance is running on (Eg. 192.168.1.1:8192)"                                                                                   
 read ccip                                                                                                                                                         
-                                                                                                                                                                  
+
+certbot --nginx                                                                                                                                                   
+
 echo " server {
     listen 80;
     server_name $ccdomain;
@@ -36,6 +38,5 @@ location / {
                                                                                                                                                                   
 ln -s /etc/nginx/sites-available/$ccdomain.conf /etc/nginx/sites-enabled/$ccdomain.conf                                                                           
                                                                                                                                                                   
-certbot --nginx                                                                                                                                                   
                                                                                                                                                                   
 echo "Your reverse proxy for your heliactyl is now setup and should be available at https://$ccdomain" 

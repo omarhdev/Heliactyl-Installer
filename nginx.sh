@@ -1,13 +1,9 @@
 #!/bin/bash
-
-echo "This script will setup an ssl nginx config for your heliactyl instance!" 
-
-echo "What is the domain your heliactyl instance running on? (eg: client.heliactyl.cloud)"                                                                                                                   
-read ccdomain                                                                               
-
+echo "This script will setup an ssl nginx config for your heliactyl instance!"
+echo "What is the domain your heliactyl instance running on? (eg: client.heliactyl.cloud)"
+read ccdomain
 echo "What is the IP address of your server and the port the heliactyl instance is running on (Eg. 192.168.1.1:8192)"
-read ccip                                                                               
-                                                                                                                                                                  
+read ccip
 echo " server {
     listen 80;
     server_name $ccdomain;
@@ -34,12 +30,12 @@ location / {
       proxy_buffering off;
       proxy_set_header X-Real-IP $remote_addr;
   }
-} " > /etc/nginx/sites-available/$ccdomain.conf                                                                                                                   
+} " > /etc/nginx/sites-available/$ccdomain.conf
 
-ln -s /etc/nginx/sites-available/$ccdomain.conf /etc/nginx/sites-enabled/$ccdomain.conf                                                                           
+ln -s /etc/nginx/sites-available/$ccdomain.conf /etc/nginx/sites-enabled/$ccdomain.conf
 
 apt install certbot
 apt install python3-certbot-nginx
-certbot certonly --nginx -d $ccdomain                                                        
+certbot certonly --nginx -d $ccdomain
 
-echo "Your reverse proxy for your heliactyl instance is now setup and should be available at https://$domain" 
+echo "Your reverse proxy for your heliactyl instance is now setup and should be available at https://$domain"
